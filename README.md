@@ -1,16 +1,33 @@
-# React + Vite
+<div align="center">
+  <h1>Manjil Budhathoki - Portfolio</h1>
+  <p>A personal portfolio showcasing my projects, skills, and components.</p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<div align="center">
+  <img src="https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Mapbox-000000.svg?style=for-the-badge&logo=mapbox&logoColor=white" alt="Mapbox" />
+</div>
 
-## React Compiler
+<br />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧱 Components Built So Far
 
-## Expanding the ESLint configuration
+- **CustomCursor** ✨
+- **Mascot** 🎨
+- **SidebarNav** 🧭
+- **Works** 💼
+- **About** 📖
+- **Footer** ⬇️
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<br />
+
+## 🚀 Coming Soon
+
+More exciting features and sections are currently in development and will be added soon!
