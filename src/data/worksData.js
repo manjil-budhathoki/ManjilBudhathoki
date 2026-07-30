@@ -5,7 +5,7 @@ export const WORKS_DATA = [
     description: "Enterprise Retrieval-Augmented Generation with RBAC & RAGAS evaluation metrics.",
     tag: "Featured Architecture",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop",
-    link: "#/project/production-rag",
+    link: "/project/production-rag", // 👈 Clean Route
     span: "md:col-span-12",
     height: "h-[340px] sm:h-[380px]",
     featured: true,

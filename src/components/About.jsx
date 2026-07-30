@@ -4,6 +4,8 @@ import { Check, Mail, ExternalLink } from "lucide-react";
 import { useMousePosition } from "../hooks/useMousePosition";
 import profileImage from "../assets/profile.png";
 import companyImage from "../assets/company.png";
+import { Link } from "react-router-dom";
+
 
 function About() {
   const mousePos = useMousePosition();
@@ -106,12 +108,12 @@ function About() {
 
       <div className="flex flex-col sm:flex-row sm:items-center gap-6 mt-8">
         <div className="flex items-center gap-6">
-          <a
-            href="#/background"
+          <Link
+            to="/me"
             className="bg-neutral-900 text-white px-5 py-2 rounded-full text-[13px] font-medium hover:bg-neutral-800 transition-colors shadow-xs"
           >
             View Profile
-          </a>
+          </Link>
 
           <button
             onClick={handleCopyMail}

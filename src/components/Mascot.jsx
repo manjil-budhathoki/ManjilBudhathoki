@@ -1,14 +1,16 @@
 import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-function Mascot({ setCurrentPage, mascotImage }) {
+function Mascot({ mascotImage }) {
+  const navigate = useNavigate();
   const [isDragging, setIsDragging] = useState(false);
 
-  // Random viewport position generator
+  // Random position generator within screen bounds
   const getRandomPosition = useCallback(() => {
     if (typeof window === "undefined") return { x: 50, y: 500 };
-    const maxX = Math.max(40, window.innerWidth - 180);
-    const maxY = Math.max(40, window.innerHeight - 180);
+    const maxX = Math.max(40, window.innerWidth - 160);
+    const maxY = Math.max(40, window.innerHeight - 160);
 
     return {
       x: Math.floor(Math.random() * (maxX - 50)) + 50,
@@ -18,7 +20,7 @@ function Mascot({ setCurrentPage, mascotImage }) {
 
   const [position, setPosition] = useState(getRandomPosition);
 
-  // Random relocation every 10 seconds
+  // Relocate mascot randomly every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isDragging) {
@@ -29,11 +31,10 @@ function Mascot({ setCurrentPage, mascotImage }) {
     return () => clearInterval(interval);
   }, [isDragging, getRandomPosition]);
 
-  // Click mascot -> Direct to "Me" page
+  // Click -> Navigate to "Me" page
   const handleClick = () => {
     if (!isDragging) {
-      setCurrentPage("me");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate("/me");
     }
   };
 
@@ -46,10 +47,15 @@ function Mascot({ setCurrentPage, mascotImage }) {
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 70, damping: 15 }}
       onClick={handleClick}
-      className="fixed left-0 top-0 z-50 font-mono select-none cursor-pointer flex items-center justify-center group"
+      className="fixed left-0 top-0 z-50 select-none cursor-pointer flex items-center justify-center group"
+      title="Click to view About Me"
     >
-      {/* Mascot Transparent Character */}
-      <div className="w-20 h-20 sm:w-24 sm:h-24 filter drop-shadow-2xl transition-transform duration-300 group-hover:scale-110">
+      {/* Transparent Mascot Character with Floating Effect */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+        className="w-16 h-16 sm:w-20 sm:h-20 filter drop-shadow-xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center"
+      >
         {mascotImage ? (
           <img
             src={mascotImage}
@@ -57,14 +63,9 @@ function Mascot({ setCurrentPage, mascotImage }) {
             className="w-full h-full object-contain pointer-events-none"
           />
         ) : (
-          <div className="text-4xl pointer-events-none">🤖</div>
+          <div className="text-3xl pointer-events-none">🤖</div>
         )}
-      </div>
-
-      {/* Hover Tooltip */}
-      <span className="absolute left-full ml-2 px-3 py-1 bg-neutral-900 text-white text-[11px] font-mono rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap shadow-lg pointer-events-none -translate-x-2 group-hover:translate-x-0">
-        About Me 👤
-      </span>
+      </motion.div>
     </motion.div>
   );
 }
